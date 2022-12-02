@@ -6,5 +6,5 @@ enum StatusEnum: int
 {
     case URGENT = 1;
     case IMPORTANT = 2;
-    case LITTLE_IMPORTANT = 3;
+    case QUIET = 3;
 }

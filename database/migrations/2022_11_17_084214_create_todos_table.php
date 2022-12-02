@@ -12,6 +12,7 @@ return new class extends Migration
             $table->id();
             $table->string('assignment');
             $table->tinyInteger('status');
+            $table->string('detail')->nullable();
             $table->timestamps();
         });
     }

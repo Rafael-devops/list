@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Enum\StatusEnum;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Todo extends Model
@@ -14,10 +15,11 @@ class Todo extends Model
     protected $fillable = [
         'assignment',
         'status',
+        'detail',
     ];
 
-    public function user(): HasMany
+    public function user(): BelongsTo
     {
-        $this->hasMany(User::class);
+        $this->belongsTo(User::class);
     }
 }

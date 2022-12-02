@@ -15,6 +15,7 @@ class TodoFactory extends Factory
         return [
             'assignment' => $this->faker->sentence,
             'status' => $this->faker->randomElement(StatusEnum::cases()),
+            'detail' => $this->faker->text,
         ];
     }
 }
