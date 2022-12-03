@@ -1,15 +1,18 @@
-<nav class="bg-white shadow">
+<nav class="bg-gray-800 shadow">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="flex h-16 justify-between">
         <div class="flex">
-          <div class="flex flex-shrink-0 items-center">
-            <img class="block h-8 w-auto lg:hidden" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="Your Company">
-            <img class="hidden h-8 w-auto lg:block" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="Your Company">
-          </div>
-          <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
-                <x-nav-link :href="route('index')" :active="request()->routeIs('index')" >
+          <div class="flex items-center">
+            <div class="flex-shrink-0">
+              <img class="h-8 w-8" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company">
+            </div>
+            <div class="hidden md:block sm:ml-6 sm:flex sm:space-x-8">
+              <div class="ml-10 flex items-baseline space-x-4">
+                <x-nav-link :href="route('index')" :active="request()->routeIs('index')" class="text-white" >
                     {{ __('Assigments') }}
                 </x-nav-link>
+              </div>
+            </div>
           </div>
         </div>
         <div class="hidden sm:ml-6 sm:flex sm:items-center">
@@ -20,7 +23,7 @@
 
                     <x-slot name="trigger">
                         <div class="inline-flex">
-                            <span class="text-sm font-medium text-gray-700 mt-4 mr-1">
+                            <span class="text-sm text-white font-semibold mt-4 mr-2">
                                 {{-- {!! user()->name !!} --}}Rafael Gil
                             </span>
                             <x-avatar md class="w-[36px] h-[36px] mt-2" id="user-avatar"

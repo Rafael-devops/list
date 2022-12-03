@@ -1,5 +1,5 @@
 <div>
-    <x-button info icon="pencil" wire:click="$toggle('opened')" rounded></x-button>
+    <x-button icon="pencil-alt" class="text-blue-600 h-9 w-9 border border-transparent hover:bg-blue-100" wire:click="$toggle('opened')" rounded></x-button>
 
     <x-modal wire:model.defer="opened">
         <x-card>

@@ -10,9 +10,10 @@ return new class extends Migration
     {
         Schema::create('todos', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
             $table->string('assignment');
             $table->tinyInteger('status');
-            $table->string('detail')->nullable();
+            $table->boolean('done')->nullable();
             $table->timestamps();
         });
     }

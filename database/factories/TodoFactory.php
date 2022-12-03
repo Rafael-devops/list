@@ -13,9 +13,9 @@ class TodoFactory extends Factory
     public function definition()
     {
         return [
-            'assignment' => $this->faker->sentence,
+            'title' => $this->faker->sentence,
+            'assignment' => $this->faker->text,
             'status' => $this->faker->randomElement(StatusEnum::cases()),
-            'detail' => $this->faker->text,
         ];
     }
 }

@@ -1,12 +1,16 @@
-<div class="flex justify-center items-center min-h-screen bg-gray-100">
-    <div class="h-auto w-3/4 bg-white rounded-lg p-4 shadow-2xl">
-        @if (!$this->list->count() == 0)
-            <div class="flex justify-between">
-                <p class="text-xl font-bold mt-2 text-[#063c76]">Todo List</p>
+@if (!$this->list->count() == 0)
+    <header class="bg-white shadow-sm">
+        <div class="flex justify-between mx-auto max-w-7xl py-4 px-4 sm:px-6 lg:px-8">
+            <h1 class="text-lg font-semibold leading-6 text-gray-900 mt-1">Tasks</h1>
+
+            <div>
                 <livewire:todo.create />
             </div>
-        @endif
-
+        </div>
+    </header>
+@endif
+<div class="flex justify-center items-center min-h-screen bg-gray-100">
+    <div class="h-auto w-3/4 bg-white rounded-lg p-4 shadow-2xl">
         @if ($this->list->count() == 0)
             <div class="flex justify-between">
                 <div class="mt-10 mb-10">
@@ -29,20 +33,24 @@
                         <div class="flex w-full items-center justify-between space-x-6 p-6">
                             <div class="flex-1 truncate">
                                 <div class="flex items-center space-x-3">
-                                    <h3 class="truncate text-sm font-medium text-gray-900">Jane Cooper</h3>
+                                    <h3 class="truncate text-lg font-medium text-gray-900">{{ $todo->title }}</h3>
                                     <span
-                                        class="inline-block flex-shrink-0 rounded-full bg-green-100 px-2 py-0.5 text-xs font-medium text-green-800">Admin</span>
+                                        class="inline-block flex-shrink-0 rounded-full bg-green-100 px-2 py-0.5 text-xs font-medium text-green-800">{{ $todo->status }}</span>
                                 </div>
-                                <p class="mt-1 truncate text-sm text-gray-500">{{ $todo->assignment }}</p>
+                                <p class="mt-1 truncate text-md text-gray-500">{{ $todo->assignment }}</p>
                             </div>
-                            <img class="h-10 w-10 flex-shrink-0 rounded-full bg-gray-300"
-                                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60"
-                                alt="">
+
+                            <div class="flex justify-between">
+                                <livewire:todo.edit :list="$todo" />
+                                <livewire:todo.delete :list="$todo">
+                            </div>
                         </div>
                     </li>
                     <!-- More people... -->
                 </ul>
             @endforeach
+
+            {{ $this->todos->links() }}
         @endif
     </div>
 </div>

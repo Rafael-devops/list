@@ -24,8 +24,9 @@ class Create extends Component
     public function getRules(): array
     {
         return [
-            'list.assignment' => ['required'],
+            'list.assignment' => ['required', 'max:255', 'min:3'],
             'list.status' => ['required', Rule::in($this->status->pluck('id'))],
+            'list.title' => ['required', 'max:255', 'min:3']
         ];
     }
 

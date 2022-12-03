@@ -1,18 +1,16 @@
 <div>
-    <x-button info label="New Task" icon="plus" class="font-bold text-xl" wire:click="$toggle('opened')" rounded>
-
+    <x-button outline info label="New Task" icon="plus" class="font-bold text-sm" wire:click="$toggle('opened')" rounded-md>
     </x-button>
 
-    <x-modal.card title="Create Task" class="w-3/4" blur wire:model.defer="opened">
+    <x-modal.card itle="Create Task" class="w-3/4" blur wire:model.defer="opened">
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <x-input label="Taks" placeholder="Task" wire:model='list.assignment' />
-            <x-select  label="Status Task" placeholder="Status Task" :options="$this->status"
-                option-label="name" option-value="id"
+            <x-input label="Taks" placeholder="Task" wire:model='list.title' />
+            <x-select label="Status Task" placeholder="Status Task" :options="$this->status" option-label="name" option-value="id"
                 wire:model="list.status" />
 
             <div class="col-span-1 sm:col-span-2">
+                <x-input label="Description" placeholder="Description" wire:model='list.assignment' />
             </div>
-
         </div>
 
         <x-slot name="footer">
